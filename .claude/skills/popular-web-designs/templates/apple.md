@@ -1,7 +1,7 @@
 # Design System: Apple
 
 
-> **Hermes Agent — Implementation Notes**
+> **Implementation Notes**
 >
 > The original site uses proprietary fonts. For self-contained HTML output, use these CDN substitutes:
 > - **Primary:** `system-ui` | **Mono:** `SF Mono (system)`
@@ -10,8 +10,7 @@
 > ```html
 > <!-- No CDN needed — uses system fonts -->
 > ```
-> Use `write_file` to create HTML, serve via `generative-widgets` skill (cloudflared tunnel).
-> Verify visual accuracy with `browser_exec` (`capture_screenshot()`) after generating.
+> Write the HTML as a single file and verify visual accuracy with a headless-browser screenshot after generating.
 
 ## 1. Visual Theme & Atmosphere
 

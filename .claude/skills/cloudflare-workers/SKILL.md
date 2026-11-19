@@ -1,3 +1,8 @@
+---
+name: cloudflare-workers
+description: "Cloudflare Workers, Wrangler, Hono, Durable Objects, D1, KV, R2 and Queues patterns and pitfalls. Use before writing Worker code."
+---
+
 # Skill: Cloudflare Workers
 
 ## When to Use

@@ -27,18 +27,14 @@ The output is real interactive art. Not tutorial exercises. Generative systems, 
 | **HTML** | Self-contained file, opens in any browser |
 | **PNG** | `saveCanvas()` — press 's' to capture |
 | **GIF** | `saveGif()` — press 'g' to capture |
-| **MP4** | Frame sequence + ffmpeg via `scripts/render.sh` |
+| **MP4** | Frame sequence + ffmpeg |
 | **SVG** | p5.js-svg renderer for vector output |
 
 ## Prerequisites
 
 A modern browser. That's it for basic use.
 
-For headless export: Node.js, Puppeteer, ffmpeg.
-
-```bash
-bash skills/creative/p5js/scripts/setup.sh
-```
+For headless export: Node.js, Playwright (or Puppeteer), ffmpeg.
 
 ## File Structure
 

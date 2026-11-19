@@ -8,7 +8,7 @@ platforms: [linux, macos, windows]
 metadata:
   hermes:
     tags: [Documents, OCR, Action-Items, Deadlines, Extraction]
-    related_skills: [pdf, microsoft-office]
+    related_skills: []
 ---
 
 # Document to Action Items

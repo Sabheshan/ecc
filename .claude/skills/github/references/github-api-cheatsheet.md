@@ -4,10 +4,7 @@ Base URL: `https://api.github.com`
 
 All requests need: `-H "Authorization: token $GITHUB_TOKEN"`
 
-Use the `gh-env.sh` helper to set `$GITHUB_TOKEN`, `$GH_OWNER`, `$GH_REPO` automatically:
-```bash
-source "${HERMES_HOME:-$HOME/.hermes}/skills/github/github-auth/scripts/gh-env.sh"
-```
+Set `$GITHUB_TOKEN`, `$GH_OWNER` and `$GH_REPO` first with the setup block in `references/auth.md`.
 
 ## Repositories
 

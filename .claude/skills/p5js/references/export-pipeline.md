@@ -155,7 +155,7 @@ function draw() {
 }
 ```
 
-The bundled `scripts/export-frames.js` detects `window._p5Ready` and switches to deterministic mode automatically. Without it, falls back to timed capture (less precise).
+A capture script should detect `window._p5Ready` and switch to deterministic mode. Without it, fall back to timed capture (less precise).
 
 ### ffmpeg: Frames to MP4
 
@@ -274,24 +274,18 @@ For automated, server-side, or CI rendering. Uses a headless Chrome browser to r
 
 ### export-frames.js (Node.js Script)
 
-See `scripts/export-frames.js` for the full implementation. Basic pattern:
+The original full implementation was not copied into this repo. Basic pattern:
 
 ```javascript
 const puppeteer = require('puppeteer');
 const path = require('path');
-// Save this next to scripts/export-frames.js: require() resolves from this file, not the cwd.
-const { chromeArgs, sketchRequestHandler, SKETCH_ORIGIN } = require('./export-frames.js');
+// Serve the sketch's folder first, e.g. `python -m http.server 8080` in that folder.
+const SKETCH_ORIGIN = 'http://localhost:8080';
 
 async function captureFrames(htmlPath, outputDir, options) {
-  // Chrome's sandbox and web security stay on; chromeArgs() adds --no-sandbox only on hosts that
-  // cannot run it (root, containers, AppArmor userns restriction).
-  const browser = await puppeteer.launch({ headless: true, args: chromeArgs() });
+  // Keep Chrome's sandbox on where the host supports it.
+  const browser = await puppeteer.launch({ headless: true });
   const page = await browser.newPage();
-
-  // Serve the sketch's own folder from SKETCH_ORIGIN instead of file://; other origins keep
-  // the browser's rules, and anything outside the folder gets a 404.
-  await page.setRequestInterception(true);
-  page.on('request', sketchRequestHandler(path.dirname(path.resolve(htmlPath))));
 
   await page.setViewport({
     width: options.width || 1920,
@@ -324,7 +318,7 @@ async function captureFrames(htmlPath, outputDir, options) {
 
 ### render.sh (Full Pipeline)
 
-See `scripts/render.sh` for the complete render script. Pipeline:
+The original render script was not copied into this repo. Pipeline:
 
 ```
 1. Launch Puppeteer → open sketch HTML
@@ -379,7 +373,7 @@ Render background effects to PNG, then SVG for crisp vector elements on top.
 | Print-quality still | PNG (high-res) | `pixelDensity(1)` + large canvas |
 | Short animated loop | GIF | `saveGif()` |
 | Long animation | MP4 | Frame sequence + ffmpeg |
-| Social media video | MP4 | `scripts/render.sh` |
+| Social media video | MP4 | Headless capture + ffmpeg |
 | Vector/print | SVG | p5.js-svg renderer |
 | Batch variations | PNG sequence | Seed loop + `saveCanvas()` |
 | Interactive deployment | HTML | Single self-contained file |

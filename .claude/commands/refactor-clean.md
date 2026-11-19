@@ -1,3 +1,7 @@
+---
+description: "Safely find and remove dead code, verifying with tests at every step."
+---
+
 # Refactor Clean
 
 Safely identify and remove dead code with test verification at every step.

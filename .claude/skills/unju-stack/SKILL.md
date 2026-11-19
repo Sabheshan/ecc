@@ -1,3 +1,8 @@
+---
+name: unju-stack
+description: "Architecture decisions, conventions and patterns for unju-ai repositories. Use when working in any unju-ai repo."
+---
+
 # Skill: Unju Stack
 
 ## When to Use
