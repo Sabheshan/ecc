@@ -1,12 +1,8 @@
 ---
 name: unju-api-specialist
 description: Expert in the unju-api codebase — Hono domain-router patterns, Kysely/D1, OpenAPI spec generation, auth flows (SIWE + Better Auth), and Cloudflare Workers deployment. Use when writing or reviewing unju-api routes, DB queries, or openapi.json updates.
-tools:
-  - read
-  - edit
-  - write
-  - bash
-model: claude-sonnet-4-5
+tools: ["Read", "Edit", "Write", "Bash", "Grep", "Glob"]
+model: sonnet
 ---
 
 # Unju API Specialist

@@ -8,7 +8,7 @@ platforms: [linux, macos, windows]
 metadata:
   hermes:
     tags: [Research, Arxiv, Papers, Academic, Science, API]
-    related_skills: [pdf]
+    related_skills: []
 ---
 
 # arXiv Research
@@ -172,23 +172,6 @@ For local PDF processing, see the `ocr-and-documents` skill.
 
 Full list: https://arxiv.org/category_taxonomy
 
-## Helper Script
-
-The `scripts/search_arxiv.py` script handles XML parsing and provides clean output:
-
-```bash
-python scripts/search_arxiv.py "GRPO reinforcement learning"
-python scripts/search_arxiv.py "transformer attention" --max 10 --sort date
-python scripts/search_arxiv.py --author "Yann LeCun" --max 5
-python scripts/search_arxiv.py --category cs.AI --sort date
-python scripts/search_arxiv.py --id 2402.03300
-python scripts/search_arxiv.py --id 2402.03300,2401.12345
-```
-
-No dependencies — uses only Python stdlib.
-
----
-
 ## Semantic Scholar (Citations, Related Papers, Author Profiles)
 
 arXiv doesn't provide citation data or recommendations. Use the **Semantic Scholar API** for that — free, no key needed for basic use (1 req/sec), returns JSON.
@@ -243,7 +226,7 @@ curl -s "https://api.semanticscholar.org/graph/v1/author/search?query=Yann+LeCun
 
 ## Complete Research Workflow
 
-1. **Discover**: `python scripts/search_arxiv.py "your topic" --sort date --max 10`
+1. **Discover**: `curl -s "https://export.arxiv.org/api/query?search_query=all:YOUR+TOPIC&sortBy=submittedDate&sortOrder=descending&max_results=10"`
 2. **Assess impact**: `curl -s "https://api.semanticscholar.org/graph/v1/paper/arXiv:ID?fields=citationCount,influentialCitationCount"`
 3. **Read abstract**: `web_extract(urls=["https://arxiv.org/abs/ID"])`
 4. **Read full paper**: `web_extract(urls=["https://arxiv.org/pdf/ID"])`

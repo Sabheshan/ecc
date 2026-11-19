@@ -9,7 +9,7 @@ platforms: [linux, macos, windows]
 metadata:
   hermes:
     tags: [architecture, diagrams, SVG, HTML, visualization, infrastructure, cloud]
-    related_skills: [concept-diagrams, excalidraw]
+    related_skills: []
 ---
 
 # Architecture Diagram Skill
@@ -141,8 +141,6 @@ The generated HTML file follows a four-part layout:
 
 Load the full HTML template for the exact structure, CSS, and SVG component examples:
 
-```
-skill_view(name="architecture-diagram", file_path="templates/template.html")
-```
+Read `templates/template.html` in this skill's folder.
 
 The template contains working examples of every component type (frontend, backend, database, cloud, security), arrow styles (standard, dashed, curved), security groups, region boundaries, and the legend — use it as your structural reference when generating diagrams.

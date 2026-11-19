@@ -1,7 +1,7 @@
 # Design System: Runway
 
 
-> **Hermes Agent — Implementation Notes**
+> **Implementation Notes**
 >
 > The original site uses proprietary fonts. For self-contained HTML output, use these CDN substitutes:
 > - **Primary:** `Inter` | **Mono:** `system monospace stack`
@@ -10,8 +10,7 @@
 > ```html
 > <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 > ```
-> Use `write_file` to create HTML, serve via `generative-widgets` skill (cloudflared tunnel).
-> Verify visual accuracy with `browser_exec` (`capture_screenshot()`) after generating.
+> Write the HTML as a single file and verify visual accuracy with a headless-browser screenshot after generating.
 
 ## 1. Visual Theme & Atmosphere
 

@@ -37,14 +37,13 @@ system, shadows, responsive behavior, and practical agent prompts with exact CSS
 ## How to Use
 
 1. Pick a design from the catalog below
-2. Load it: `skill_view(name="popular-web-designs", file_path="templates/<site>.md")`
+2. Read `templates/<site>.md` in this skill's folder
 3. Use the design tokens and component specs when generating HTML
-4. Pair with the `generative-widgets` skill to serve the result via cloudflared tunnel
 
-Each template includes a **Hermes Implementation Notes** block at the top with:
+Each template includes an **Implementation Notes** block at the top with:
 - CDN font substitute and Google Fonts `<link>` tag (ready to paste)
 - CSS font-family stacks for primary and monospace
-- Reminders to use `write_file` for HTML creation and `browser_exec` (`capture_screenshot()`) for verification
+- Reminders to write a single HTML file and check it with a screenshot
 
 ## HTML Generation Pattern
 
@@ -82,8 +81,8 @@ Each template includes a **Hermes Implementation Notes** block at the top with:
 </html>
 ```
 
-Write the file with `write_file`, serve with the `generative-widgets` workflow (cloudflared tunnel),
-and verify the result with `browser_exec`: open the page, `capture_screenshot()`, and inspect the image to confirm visual accuracy.
+Write the HTML file, then verify the result: open it in a headless browser (Playwright), take a screenshot,
+and inspect the image to confirm visual accuracy.
 
 ## Font Substitution Reference
 
